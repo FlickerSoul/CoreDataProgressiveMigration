@@ -9,6 +9,7 @@ import CoreData
 
 enum CoreDataMigrationVersion: String, CaseIterable {
     case v1 = "V1"
+    case v2 = "V2-add-name"
 
     // MARK: - Current
 
@@ -24,7 +25,8 @@ enum CoreDataMigrationVersion: String, CaseIterable {
 
     func nextVersion() -> CoreDataMigrationVersion? {
         switch self {
-        case .v1: nil
+        case .v1: .v2
+        case .v2: nil
         }
     }
 }
