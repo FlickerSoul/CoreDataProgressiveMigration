@@ -23,11 +23,43 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		574C255F2DF066C30092E531 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = ProgressiveMigration;
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		57A3321D2DEF5CFB00B5235C /* CoreDataMigrationSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataMigrationSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57A3322F2DEF5CFD00B5235C /* CoreDataMigrationSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataMigrationSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57A332392DEF5CFD00B5235C /* CoreDataMigrationSwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataMigrationSwiftUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		575F12E62DF078FC00605B12 /* Exceptions for "CoreDataMigrationSwiftUITests" folder in "CoreDataMigrationSwiftUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Assets/V1.sqlite,
+			);
+			target = 57A3322E2DEF5CFD00B5235C /* CoreDataMigrationSwiftUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		574C25B62DF06A310092E531 /* Exceptions for "CoreDataMigrationSwiftUITests" folder in "Copy Files" phase from "CoreDataMigrationSwiftUITests" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 574C255F2DF066C30092E531 /* CopyFiles */;
+			membershipExceptions = (
+				Assets/V1.sqlite,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		57A3321F2DEF5CFB00B5235C /* CoreDataMigrationSwiftUI */ = {
@@ -37,6 +69,10 @@
 		};
 		57A332322DEF5CFD00B5235C /* CoreDataMigrationSwiftUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				575F12E62DF078FC00605B12 /* Exceptions for "CoreDataMigrationSwiftUITests" folder in "CoreDataMigrationSwiftUITests" target */,
+				574C25B62DF06A310092E531 /* Exceptions for "CoreDataMigrationSwiftUITests" folder in "Copy Files" phase from "CoreDataMigrationSwiftUITests" target */,
+			);
 			path = CoreDataMigrationSwiftUITests;
 			sourceTree = "<group>";
 		};
@@ -124,6 +160,7 @@
 				57A3322B2DEF5CFD00B5235C /* Sources */,
 				57A3322C2DEF5CFD00B5235C /* Frameworks */,
 				57A3322D2DEF5CFD00B5235C /* Resources */,
+				574C255F2DF066C30092E531 /* CopyFiles */,
 			);
 			buildRules = (
 			);
