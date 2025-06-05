@@ -39,11 +39,7 @@ struct CoreDataMigrationSwiftUIApp: App {
                 errorScreen
             }
         } else {
-            Image(.icon)
-                .resizable()
-                .scaledToFit()
-                .clipShape(RoundedRectangle(cornerRadius: 48))
-                .frame(width: 200, height: 200)
+            splashScreen
         }
     }
 
@@ -60,5 +56,14 @@ struct CoreDataMigrationSwiftUIApp: App {
             systemImage: "swiftdata",
             description: Text("There was an error initializing the database. Please try again later.")
         )
+    }
+
+    @ViewBuilder
+    var splashScreen: some View {
+        Image(.icon)
+            .resizable()
+            .scaledToFit()
+            .clipShape(RoundedRectangle(cornerRadius: 48))
+            .frame(width: 200, height: 200)
     }
 }

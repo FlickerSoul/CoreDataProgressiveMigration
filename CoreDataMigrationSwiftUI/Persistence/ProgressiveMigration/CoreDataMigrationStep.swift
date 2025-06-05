@@ -33,9 +33,9 @@ struct CoreDataMigrationStep {
         self.destinationModel = destinationModel
         self.mappingModel = mappingModel
     }
+}
 
-    // MARK: - Mapping
-
+extension CoreDataMigrationStep {
     private static func mappingModel(
         fromSourceModel sourceModel: NSManagedObjectModel,
         toDestinationModel destinationModel: NSManagedObjectModel

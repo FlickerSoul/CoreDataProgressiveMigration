@@ -42,7 +42,7 @@ struct PersistenceController {
     func setup(inMemory: Bool = false) async throws(PersistenceError) {
         do {
             if !inMemory {
-                try await migrateStoreIfNeeded()
+                try migrateStoreIfNeeded()
             }
 
             return try await withCheckedThrowingContinuation { continuation in
@@ -68,7 +68,7 @@ struct PersistenceController {
         }
     }
 
-    private func migrateStoreIfNeeded() async throws(CoreDataMigrationError) {
+    private func migrateStoreIfNeeded() throws(CoreDataMigrationError) {
         guard let storeURL = container.persistentStoreDescriptions.first?.url else {
             NSLog("persistentContainer was not set up properly, missing store URL")
             throw CoreDataMigrationError.containerMisconfigured

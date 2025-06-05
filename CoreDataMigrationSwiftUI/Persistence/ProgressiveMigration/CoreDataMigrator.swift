@@ -8,37 +8,6 @@
 import CoreData
 import Foundation
 
-extension NSManagedObjectModel {
-    // MARK: - Get Object Model By Version
-
-    static func managedObjectModel(forVersion version: CoreDataMigrationVersion) throws(CoreDataMigrationError)
-        -> NSManagedObjectModel {
-        let mainBundle = Bundle.main
-        let subdirectory = "CoreDataMigrationSwiftUI.momd"
-        let modelName = version.rawValue
-
-        let omoURL = mainBundle.url(forResource: modelName, withExtension: "omo", subdirectory: subdirectory)
-        let momURL = mainBundle.url(forResource: modelName, withExtension: "mom", subdirectory: subdirectory)
-
-        guard let url = omoURL ?? momURL else {
-            NSLog("unable to find model in bundle of name \(modelName) in \(subdirectory) in \(Bundle.main.bundlePath)")
-            throw .failToFindModelDefinition
-        }
-
-        guard let model = NSManagedObjectModel(contentsOf: url) else {
-            NSLog("unable to load model in bundle of name \(modelName) at URL \(url)")
-            throw .failToLoadModelDefinition
-        }
-
-        return model
-    }
-
-    static func compatibleModelForStoreMetadata(_ metadata: [String: Any]) -> NSManagedObjectModel? {
-        let mainBundle = Bundle.main
-        return NSManagedObjectModel.mergedModel(from: [mainBundle], forStoreMetadata: metadata)
-    }
-}
-
 final class CoreDataMigrator: CoreDataMigratorProtocol {
     // MARK: - Check
 
@@ -219,6 +188,13 @@ private extension NSPersistentStoreCoordinator {
             NSLog("failed to add persistent store to coordinator at \(storeURL), options: \(options), error: \(error)")
             throw .failToAddStoreToCoordinator(at: storeURL, underlying: error)
         }
+    }
+}
+
+private extension NSManagedObjectModel {
+    static func compatibleModelForStoreMetadata(_ metadata: [String: Any]) -> NSManagedObjectModel? {
+        let mainBundle = Bundle.main
+        return NSManagedObjectModel.mergedModel(from: [mainBundle], forStoreMetadata: metadata)
     }
 }
 
